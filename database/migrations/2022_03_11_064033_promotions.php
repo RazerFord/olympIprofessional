@@ -16,7 +16,7 @@ class Promotions extends Migration
         Schema::create('promotions', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('description', 255);
+            $table->string('description', 255)->nullable();
             $table->timestamp('created_at', $precision = 0)->useCurrent();
             $table->timestamp('updated_at', $precision = 0)->useCurrent()->useCurrentOnUpdate();
         });

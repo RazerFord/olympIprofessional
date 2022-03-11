@@ -16,3 +16,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->group(['namespace' => 'BaseControllers'], function () use ($router) {
+    $router->post('/{entity:promo}', 'BaseController');
+});
