@@ -5,7 +5,7 @@ namespace App\Http\Services;
 use App\DTO\GetPromotion;
 use App\Models\Promotion;
 
-class IndexPromoService
+class ShowPromoService
 {
     /**
      * Создает запись в таблице промоакции
@@ -15,12 +15,12 @@ class IndexPromoService
      */
     public function __invoke(&$request)
     {
-        try {
-            $promotions = Promotion::all();
+        // try {
+            $promotions = Promotion::with('Prizes', 'Participants')->find($request->id);
+            return response()->json($promotions, 200);
             $result = GetPromotion::getAnswer($promotions);
-            return response()->json($result, 200);
-        } catch (\Exception $e) {
-            return response()->json('Not found', 404);
-        }
+        // } catch (\Exception $e) {
+        //     return response()->json('Not found', 404);
+        // }
     }
 }

@@ -19,4 +19,5 @@ $router->get('/', function () use ($router) {
 $router->group(['namespace' => 'BaseControllers'], function () use ($router) {
     $router->post('/{entity:promo}', 'BaseController');
     $router->get('/{entity:promo}', 'BaseController');
+    $router->get('/{entity:promo}/{id:[0-9]*}', 'BaseController');
 });

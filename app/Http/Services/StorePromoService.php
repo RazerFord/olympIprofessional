@@ -11,9 +11,9 @@ class StorePromoService
 {
     /**
      * Создает запись в таблице промоакции
-     * @var Illuminate\Http\Request  $request
+     * @param Illuminate\Http\Request  $request
      * 
-     * @return JSON
+     * @return JSON возращает id созданной промоакции
      */
     public function __invoke(&$request)
     {

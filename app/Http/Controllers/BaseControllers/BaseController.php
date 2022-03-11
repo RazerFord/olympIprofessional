@@ -56,6 +56,9 @@ class BaseController extends Controller
      */
     public function checkMethod(string $method)
     {
+        if (!empty(request()->id) &&  $method == SELF::GET) {
+            return 'Show';
+        }
         switch ($method) {
             case SELF::GET:
                 return 'Index';

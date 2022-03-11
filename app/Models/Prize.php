@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Promotion extends Model
+class Prize extends Model
 {
-    protected $table = 'promotions';
+    protected $table = 'prizes';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'description'
+        'description', 'promotion_id'
     ];
 
     /**
@@ -22,7 +22,7 @@ class Promotion extends Model
      * @var array
      */
     protected $hidden = [
-        'created_at', 'updated_at'
+        'promotion_id', 'created_at', 'updated_at'
     ];
 
     /**
@@ -33,13 +33,4 @@ class Promotion extends Model
     protected $guarded = [
         'created_at', 'updated_at'
     ];
-
-    public function Prizes()
-    {
-        return $this->hasMany(Prize::class);
-    }
-    public function Participants()
-    {
-        return $this->hasMany(Participant::class);
-    }
 }

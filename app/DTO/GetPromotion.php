@@ -4,6 +4,12 @@ namespace App\DTO;
 
 class GetPromotion
 {
+    /**
+     * Создает запись в таблице промоакции
+     * @param array $data
+     * 
+     * @return JSON возращает id созданной промоакции
+     */
     public static function getAnswer($data)
     {
         $result = [];
