@@ -17,8 +17,8 @@ class Winners extends Migration
             $table->id();
             $table->unsignedBigInteger('participant_id');
             $table->unsignedBigInteger('prize_id');
-            $table->foreign('participant_id')->references('id')->on('participants');
-            $table->foreign('prize_id')->references('id')->on('prizes');
+            $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('prize_id')->references('id')->on('prizes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamp('created_at', $precision = 0)->useCurrent();
             $table->timestamp('updated_at', $precision = 0)->useCurrent()->useCurrentOnUpdate();
         });

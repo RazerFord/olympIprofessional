@@ -21,4 +21,9 @@ $router->group(['namespace' => 'BaseControllers'], function () use ($router) {
     $router->get('/{entity:promo}', 'BaseController');
     $router->get('/{entity:promo}/{id:[0-9]*}', 'BaseController');
     $router->put('/{entity:promo}/{id:[0-9]*}', 'BaseController');
+    $router->delete('/{entity:promo}/{id:[0-9]*}', 'BaseController');
+});
+$router->group(['namespace' => 'OtherControllers'], function () use ($router) {
+    $router->post('/promo/{id:[0-9]+}/participant', 'AddParticipantToPromo');
+    $router->delete('/promo/{promoId}/participant/{pId}', 'DeleteParticipantFromPromo');
 });
