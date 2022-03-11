@@ -15,12 +15,12 @@ class ShowPromoService
      */
     public function __invoke(&$request)
     {
-        // try {
+        try {
             $promotions = Promotion::with('Prizes', 'Participants')->find($request->id);
             return response()->json($promotions, 200);
-            $result = GetPromotion::getAnswer($promotions);
-        // } catch (\Exception $e) {
-        //     return response()->json('Not found', 404);
-        // }
+            // $result = GetPromotion::getAnswer($promotions);
+        } catch (\Exception $e) {
+            return response()->json('Not found', 404);
+        }
     }
 }
