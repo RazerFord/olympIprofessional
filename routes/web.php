@@ -26,4 +26,6 @@ $router->group(['namespace' => 'BaseControllers'], function () use ($router) {
 $router->group(['namespace' => 'OtherControllers'], function () use ($router) {
     $router->post('/promo/{id:[0-9]+}/participant', 'AddParticipantToPromo');
     $router->delete('/promo/{promoId}/participant/{pId}', 'DeleteParticipantFromPromo');
+    $router->post('/promo/{id:[0-9]+}/prize', 'AddPrizeToPromo');
+    $router->delete('/promo/{promoId}/prize/{pId}', 'DeletePrizeFromPromo');
 });
