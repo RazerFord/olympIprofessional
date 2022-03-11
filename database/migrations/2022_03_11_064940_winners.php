@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Promotions extends Migration
+class Winners extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class Promotions extends Migration
      */
     public function up()
     {
-        Schema::create('promotions', function (Blueprint $table) {
+        Schema::create('winners', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('description', 255);
+            $table->unsignedBigInteger('member_id');
+            $table->unsignedBigInteger('prize_id');
+            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('prize_id')->references('id')->on('prizes');
             $table->timestamp('created_at', $precision = 0)->useCurrent();
             $table->timestamp('updated_at', $precision = 0)->useCurrent()->useCurrentOnUpdate();
         });
@@ -29,6 +31,6 @@ class Promotions extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promotions');
+        Schema::dropIfExists('winners');
     }
 }
